@@ -58,14 +58,14 @@ function App() {
 	}, [])
 
 	const callUser = (id) => {
-		debugger
+		
 		const peer = new Peer({
 			initiator: true,
 			trickle: false,
 			stream: stream
 		})
 		peer.on("signal", (data) => {
-			debugger
+			
 			socket.emit("callUser", {
 				userToCall: id,
 				signalData: data,
@@ -87,7 +87,7 @@ function App() {
 	}
 
 	const answerCall =() =>  {
-		debugger
+		
 		setCallAccepted(true)
 		const peer = new Peer({
 			initiator: false,
