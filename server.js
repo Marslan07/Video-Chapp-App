@@ -19,7 +19,7 @@ const io = require('socket.io')(server, { cors: { origin: 'http://localhost:3000
 //   };
 
 io.on("connection", (socket) => {
-	// debugger
+	
 	socket.emit("me", socket.id)
 
 	socket.on("disconnect", () => {
@@ -27,12 +27,12 @@ io.on("connection", (socket) => {
 	})
 
 	socket.on("callUser", (data) => {
-		debugger
+		
 		io.to(data.userToCall).emit("callUser", { signal: data.signalData, from: data.from, name: data.name })
 	})
 
 	socket.on("answerCall", (data) => {
-		debugger
+		
 		io.to(data.to).emit("callAccepted", data.signal)
 	})
 })
